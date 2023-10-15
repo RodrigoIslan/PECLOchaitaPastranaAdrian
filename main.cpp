@@ -1,7 +1,5 @@
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-	printf("hello world\n");
-	return 0;
+int main() {
+    // Implementa el menú con opciones A a L y llama a las funciones del gestor
+    return 0;
 }
+
