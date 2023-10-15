@@ -93,6 +93,30 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="Source Files">
+      <File Name="src/Pila.cpp"/>
+      <File Name="src/Pedido.cpp"/>
+      <File Name="src/NodoPila.cpp"/>
+      <File Name="src/NodoLista.cpp"/>
+      <File Name="src/NodoCola.cpp"/>
+      <File Name="src/NodoArbol.cpp"/>
+      <File Name="src/Lista.cpp"/>
+      <File Name="src/Gestor.cpp"/>
+      <File Name="src/Cola.cpp"/>
+      <File Name="src/Header Files/Arbol.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="src/Pila.hpp"/>
+      <File Name="src/Pedido.hpp"/>
+      <File Name="src/NodoPila.hpp"/>
+      <File Name="src/NodoLista.hpp"/>
+      <File Name="src/NodoCola.hpp"/>
+      <File Name="src/NodoArbol.hpp"/>
+      <File Name="src/Lista.hpp"/>
+      <File Name="src/Gestor.hpp"/>
+      <File Name="src/Cola.hpp"/>
+      <File Name="src/Header Files/Arbol.hpp"/>
+    </VirtualDirectory>
     <File Name="main.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
