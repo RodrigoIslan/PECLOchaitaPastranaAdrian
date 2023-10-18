@@ -5,7 +5,7 @@
 using namespace std;
 
 /*
-* Implementaci�n de la clase Pedido: se implementan(de completan)
+* Implementacion de la clase Pedido: se implementan(de completan)
 * las funciones definidas en la cabecera
 */
 Pedido::Pedido(){
