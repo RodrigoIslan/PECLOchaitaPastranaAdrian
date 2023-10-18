@@ -1,10 +1,9 @@
 #ifndef PEDIDO_HPP
 #define PEDIDO_HPP
-/*
-* Cabecera de la clase Pedido: se decleran las cabeceras de las funciones y los atributos
-*/
-class Pedido{
 
+#include <string> // Incluye la biblioteca string
+
+class Pedido {
 public:
     Pedido();
     void mostrarPedido();
@@ -13,12 +12,11 @@ public:
     void setSeguimiento(int seguimiento);
 
 private:
-    int id;             // Se asigna durante el empaquetamente
-    int seguimiento;    // Se asigna en el postempaquetada
-    char dni[9];
+    int id;             // Se asigna durante el empaquetamiento
+    int seguimiento;    // Se asigna en el postempaquetamiento
+    std::string dni;    // Corregido para utilizar std::string
     bool esUrgente;
     void generarPedidoAleatorio();
 };
 
-
-#endif // PEDIDO_HPP_INCLUDED
+#endif // PEDIDO_HPP
