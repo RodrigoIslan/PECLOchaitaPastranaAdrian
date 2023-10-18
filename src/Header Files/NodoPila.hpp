@@ -1,12 +1,20 @@
-#ifndef NODOPILA_HPP
-#define NODOPILA_HPP
+#ifndef NODOPILA_HPP_INCLUDED
+#define NODOPILA_HPP_INCLUDED
 
-class NodoPila
-{
-public:
-    NodoPila();
-    ~NodoPila();
+#include "Pedido.hpp"
 
+class NodoPila{
+
+    private:
+        Pedido value;
+        Pedido *next;
+
+    public:
+        NodoPila(Pedido value);
+        Pedido getValue();
+        Pedido* getNext();
+        void setNext(Pedido *next);
 };
 
-#endif // NODOPILA_HPP
+
+#endif // NODOPILA_HPP_INCLUDED

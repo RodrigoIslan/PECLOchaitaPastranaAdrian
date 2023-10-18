@@ -1,12 +1,17 @@
-#ifndef PILA_HPP
-#define PILA_HPP
+#ifndef PILA_HPP_INCLUDED
+#define PILA_HPP_INCLUDED
+#include "NodoPila.hpp"
+class Pila{
 
-class Pila
-{
-public:
-    Pila();
-    ~Pila();
+    public:
+        Pila();
+        void desapilar();
+        void apilar();
+        void cima();
+        bool vacia();
+    private:
+        NodoPila *nodoCima;
 
 };
 
-#endif // PILA_HPP
+#endif // PILA_HPP_INCLUDED
