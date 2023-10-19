@@ -20,27 +20,15 @@ void Pedido::mostrarPedido() {
     }
 }
 
-bool Pedido::getEsUrgente() {
-    return esUrgente;
-}
-
-void Pedido::setId(int id) {
-    this->id = id;
-}
-
-void Pedido::setSeguimiento(int seguimiento) {
-    this->seguimiento = seguimiento;
-}
-
 void Pedido::generarPedidoAleatorio() {
     esUrgente = rand() % 2 == 1;  // Aleatoriamente es urgente o no
 
     if (esUrgente) {
         id = 51 + (rand() % 49); // Genera un número entre 51 y 99 para pedidos urgentes
-        seguimiento = 501 + (rand() % 499); // Genera un número entre 501 and 999 para pedidos urgentes
+        seguimiento = 501 + (rand() % 499); // Genera un número entre 501 y 999 para pedidos urgentes
     } else {
-        id = 1 + (rand() % 49); // Genera un número entre 1 and 49 para pedidos estándar
-        seguimiento = 1 + (rand() % 499); // Genera un número entre 1 and 499 para pedidos estándar
+        id = 1 + (rand() % 49); // Genera un número entre 1 y 49 para pedidos estándar
+        seguimiento = 1 + (rand() % 499); // Genera un número entre 1 y 499 para pedidos estándar
     }
 
     // Generar un DNI aleatorio con 8 dígitos y una letra
@@ -49,5 +37,6 @@ void Pedido::generarPedidoAleatorio() {
 
     dni = numeroDNI + letraDNI;
 }
+
 
 

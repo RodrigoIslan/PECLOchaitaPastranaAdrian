@@ -1,17 +1,19 @@
-#ifndef PILA_HPP_INCLUDED
-#define PILA_HPP_INCLUDED
+// Pila.hpp
+#pragma once
 #include "NodoPila.hpp"
-class Pila{
 
-    public:
-        Pila();
-        void desapilar();
-        void apilar();
-        void cima();
-        bool vacia();
-    private:
-        NodoPila *nodoCima;
+class Pila {
+private:
+    NodoPila* cima;
+    int tamano;
 
+public:
+    Pila();
+    ~Pila();
+
+    void push(Pedido pedido);
+    void pop();
+    Pedido top();
+    bool isEmpty();
+    int size();
 };
-
-#endif // PILA_HPP_INCLUDED
