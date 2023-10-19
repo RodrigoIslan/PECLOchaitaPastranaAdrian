@@ -1,12 +1,13 @@
-#ifndef GESTOR_HPP
-#define GESTOR_HPP
+// Gestor.h
+#ifndef GESTOR_H
+#define GESTOR_H
 
-class Gestor
-{
+#include <vector>
+#include "Pedido.hpp"
+
+class Gestor {
 public:
-    Gestor();
-    ~Gestor();
-
+    std::vector<Pedido> generar12PedidosAleatorios();
 };
 
-#endif // GESTOR_HPP
+#endif

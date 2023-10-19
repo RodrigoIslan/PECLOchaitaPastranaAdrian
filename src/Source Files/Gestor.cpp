@@ -1,15 +1,13 @@
 #include "Gestor.hpp"
+#include <cstdlib>
+#include <ctime>
 
-typedef struct {
-    Pila pila;
-    Cola estacionA;
-    Cola estacionB;
-    Cola estacionC;
-    Cola estacionD;
-    Lista listaEstándar;
-    Lista listaUrgente;
-} Gestor;
-
-// Declaración de funciones para realizar las operaciones de simulación en el gestor
-
+std::vector<Pedido> Gestor::generar12PedidosAleatorios() {
+    std::vector<Pedido> pedidos;
+    for (int i = 0; i < 12; i++) {
+        Pedido pedido;
+        pedidos.push_back(pedido);
+    }
+    return pedidos;
+}
 
