@@ -2,29 +2,30 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <vector>  // Agrega la cabecera para usar vectores
 
 using namespace std;
 
 class Pedido {
-	public:
-		int id;
-		int seguimiento;
-		string dni;
-		bool esUrgente;
+public:
+    int id;
+    int seguimiento;
+    string dni;
+    bool esUrgente;
 
     Pedido() {
         generarPedidoAleatorio();
     }
 
     void mostrarPedido() {
-        cout << "ID Pedido " << this->id << endl;
-        cout << "Seguimiento " << this->seguimiento << endl;
-        cout << "DNI " << this->dni << endl;
+        cout << "ID Pedido " << id << endl;
+        cout << "Seguimiento " << seguimiento << endl;
+        cout << "DNI " << dni << endl;
         if (esUrgente) {
             cout << "Pedido URGENTE" << endl;
         }
         else {
-            cout << "Pedido STANDARD" << endl;
+            cout << "Pedido ESTANDAR" << endl;
         }
     }
 
@@ -59,22 +60,60 @@ class Pedido {
     }
 };
 
+class Gestor {
+public:
+    vector<Pedido> generar12PedidosAleatorios() {
+        vector<Pedido> pedidos;
+        for (int i = 0; i < 12; i++) {
+            Pedido pedido;
+            pedidos.push_back(pedido);
+        }
+        return pedidos;
+    }
+};
+
 int main() {
     srand(time(0));
 
-    Pedido pedidos[12];
+    Gestor gestor;
+    vector<Pedido> pedidos;
 
-    for (int i = 0; i < 12; i++) {
-        // La generación aleatoria ya se realiza en el constructor, no es necesario llamar a generarPedidoAleatorio() aquí
+    char opcion;
+    bool salir = false; // Variable para controlar la salida del bucle
 
-        // Imprimir información del pedido generado
-        cout << "Pedido " << i + 1 << ":\n";
-        cout << "ID: " << pedidos[i].id << "\n";
-        cout << "Numero de seguimiento: " << pedidos[i].seguimiento << "\n";
-        cout << "DNI del cliente: " << pedidos[i].dni << "\n";
-        cout << "Es urgente: " << (pedidos[i].esUrgente ? "Si" : "No") << "\n";
-        cout << "---------------------------------\n";
+    while (!salir) { // Bucle principal
+        cout << "Menu:\n";
+        cout << "A - Generar 12 pedidos aleatorios\n";
+        cout << "Q - Salir\n";
+        cout << "Elija una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 'A':
+            case 'a':
+                pedidos = gestor.generar12PedidosAleatorios();
+                cout << "Se han generado 12 pedidos aleatorios." << endl;
+                // Imprimir información de los pedidos generados
+
+                for (int i = 0; i < pedidos.size(); i++) {
+                    cout << "Pedido " << i + 1 << ":\n";
+                    cout << "ID: " << pedidos[i].id << "\n";
+                    cout << "Numero de seguimiento: " << pedidos[i].seguimiento << "\n";
+                    cout << "DNI del cliente: " << pedidos[i].dni << "\n";
+                    cout << "Es urgente: " << (pedidos[i].esUrgente ? "Si" : "No") << "\n";
+                    cout << "---------------------------------\n";
+                }
+                break;
+            case 'Q':
+            case 'q':
+                cout << "Saliendo del programa." << endl;
+                salir = true; // Establecer la variable de salida en verdadero
+                break;
+            default:
+                cout << "Opcion no valida. Intente de nuevo." << endl;
+        }
     }
 
     return 0;
 }
+
