@@ -5,9 +5,9 @@
 
 std::vector<Pedido> Gestor::generar12PedidosAleatorios() {
     std::vector<Pedido> pedidos;
-    for (int i = 0; i < 12; i++) {
+    for (int i = 0; i < 12; i++) { // Genera 12 pedidos aleatorios 
         Pedido pedido;
-        pedidos.push_back(pedido);
+        pedidos.push_back(pedido); // Agrega un pedido al final del vector pedidos 
     }
     return pedidos;
 }

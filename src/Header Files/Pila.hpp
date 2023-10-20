@@ -16,4 +16,6 @@ public:
     Pedido top();
     bool isEmpty();
     int size();
+	void ingresarPedidosEnEstaciones(Cola& estacionA, Cola& estacionB, Cola& estacionC, Cola& estacionD);
+};
 };

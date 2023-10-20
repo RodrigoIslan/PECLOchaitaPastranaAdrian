@@ -1,8 +1,6 @@
 #include "NodoCola.hpp"
 
-typedef struct NodoCola {
-    Pedido pedido;
-    struct NodoCola* siguiente;
-} NodoCola;
+NodoCola::NodoCola(const Pedido& p) : pedido(p), siguiente(nullptr) {}
+
 
 

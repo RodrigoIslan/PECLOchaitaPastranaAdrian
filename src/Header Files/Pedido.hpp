@@ -5,13 +5,13 @@
 #include <string>
 
 class Pedido {
-public:
+public: // Variables
     int id;
     int seguimiento;
     std::string dni;
     bool esUrgente;
 
-    Pedido();
+    Pedido(); //Metodos
     void mostrarPedido();
     bool getEsUrgente();
     void setId(int id);
@@ -21,4 +21,4 @@ private:
     void generarPedidoAleatorio();
 };
 
-#endi
+#endif

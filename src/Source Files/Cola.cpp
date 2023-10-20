@@ -1,45 +1,37 @@
 #include "Cola.hpp"
-#include "NodoCola.hpp"
 
-typedef struct {
-    NodoCola* frente;
-    NodoCola* finalCola;
-} Cola;
+Cola::Cola() : frente(nullptr), final(nullptr) {}
 
-
-void inicializarCola(Cola* cola) {
-    cola->frente = cola->finalCola = NULL;
-}
-
-
-void enqueueCola(Cola* cola, Pedido pedido) {
-    NodoCola* nuevoNodo = (NodoCola*)malloc(sizeof(NodoCola));
-    if (nuevoNodo == NULL) {
-        // Manejo de error, no se pudo asignar memoria
+void Cola::encolar(const Pedido& pedido) {
+    NodoCola* nuevoNodo = new NodoCola(pedido);
+    if (final == nullptr) {
+        frente = nuevoNodo;
+        final = nuevoNodo;
     } else {
-        nuevoNodo->pedido = pedido;
-        nuevoNodo->siguiente = NULL;
-        if (cola->finalCola == NULL) {
-            cola->frente = cola->finalCola = nuevoNodo;
-        } else {
-            cola->finalCola->siguiente = nuevoNodo;
-            cola->finalCola = nuevoNodo;
-        }
+        final->siguiente = nuevoNodo;
+        final = nuevoNodo;
     }
 }
 
-Pedido dequeueCola(Cola* cola) {
-    Pedido pedidoExtraido;
-    if (cola->frente != NULL) {
-        NodoCola* nodoAEliminar = cola->frente;
-        pedidoExtraido = nodoAEliminar->pedido;
-        cola->frente = nodoAEliminar->siguiente;
-        if (cola->frente == NULL) {
-            cola->finalCola = NULL;
-        }
-        free(nodoAEliminar);
-    } else {
-        // Manejo de error, la cola está vacía
+void Cola::desencolar() {
+    if (frente != nullptr) {
+        NodoCola* nodoAEliminar = frente;
+        frente = frente->siguiente;
+        delete nodoAEliminar;
     }
-    return pedidoExtraido;
+    if (frente == nullptr) {
+        final = nullptr;
+    }
 }
+
+Pedido Cola::frentePedido() const {
+    if (frente != nullptr) {
+        return frente->pedido;
+    }
+    return Pedido();
+}
+
+bool Cola::estaVacia() const {
+    return frente == nullptr;
+}
+
