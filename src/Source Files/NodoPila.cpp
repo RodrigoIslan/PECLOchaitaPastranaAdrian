@@ -1,22 +1,18 @@
 #include "NodoPila.hpp"
-#include <iostream>
 
-NodoPila::NodoPila(Pedido value){
-    this->value = value;
-    this->next = NULL;
+NodoPila::NodoPila(Pedido* p) {
+    pedido = p;
+    siguiente = nullptr;
 }
 
-Pedido NodoPila::getValue(){
-    return this->value;
+Pedido* NodoPila::getPedido() { 
+    return pedido; 
 }
-Pedido* NodoPila::getNext(){
-    return this->next;
+NodoPila* NodoPila::obtenerSiguiente() {
+    return siguiente;
 }
-
-void NodoPila::setNext(Pedido *next){
-    this->next = next;
+void NodoPila::establecerSiguiente(NodoPila* siguiente) {
+    this->siguiente = siguiente;
 }
-
-NodoPila::~NodoPila()
-{
+NodoPila::~NodoPila() {
 }

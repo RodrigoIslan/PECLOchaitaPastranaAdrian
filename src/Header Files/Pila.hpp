@@ -1,21 +1,16 @@
-// Pila.hpp
-#pragma once
+#ifndef PILA_HPP
+#define PILA_HPP
 #include "NodoPila.hpp"
-
 class Pila {
-private:
-    NodoPila* cima;
-    int tamano;
-
 public:
     Pila();
     ~Pila();
-
-    void push(Pedido pedido);
-    void pop();
-    Pedido top();
-    bool isEmpty();
-    int size();
-	void ingresarPedidosEnEstaciones(Cola& estacionA, Cola& estacionB, Cola& estacionC, Cola& estacionD);
+    bool estaVacia();
+    void push(Pedido* pedido);
+    Pedido* pop();
+    int longitud();
+private:
+    NodoPila* cima;
+    /*NodoPila* frente;*/
 };
-};
+#endif // PILA_HPP
