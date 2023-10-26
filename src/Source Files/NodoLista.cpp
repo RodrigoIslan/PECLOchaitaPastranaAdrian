@@ -1,9 +1,18 @@
 #include "NodoLista.hpp"
-#include "Pedido.hpp"
 
-typedef struct NodoLista {
-    Pedido pedido;
-    struct NodoLista* siguiente;
-} NodoLista;
+NodoLista::NodoLista(Pedido* p){
+    pedido = p;
+    siguiente = nullptr;
+}
+Pedido* NodoLista::obtenerPedido() {
+    return pedido;
+}
 
-
+NodoLista* NodoLista::obtenerSiguiente() {
+    return siguiente;
+}
+void NodoLista::establecerSiguiente(NodoLista* siguiente) {
+    this->siguiente = siguiente;
+}
+NodoLista::~NodoLista() {
+}

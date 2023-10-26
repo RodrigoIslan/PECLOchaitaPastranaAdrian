@@ -1,37 +1,77 @@
+/*#include "Cola.hpp"
+
+Cola::Cola()
+{
+    cima = nullptr;
+}
+
+bool Cola::estaVacia() {
+    return cima == nullptr;
+    }
+void Cola::encolar(Pedido* pedido) {
+    NodoCola* nuevoNodo = new NodoCola(pedido);
+    nuevoNodo->siguiente = cima;
+    cima = nuevoNodo;
+    }
+Pedido* Cola::desencolar() {
+    if (estaVacia()) {
+        return nullptr;
+    }
+    Pedido* pedido = cola.front();
+    cola.pop();
+    return pedido;
+    }
+Cola::~Cola()
+{
+}*/
 #include "Cola.hpp"
 
-Cola::Cola() : frente(nullptr), final(nullptr) {}
+Cola::Cola() {
+    frente = fin = nullptr;
+}
 
-void Cola::encolar(const Pedido& pedido) {
+Cola::~Cola() {
+    while (!estaVacia()) {
+        desencolar();
+    }
+}
+
+void Cola::encolar(Pedido* pedido) {
     NodoCola* nuevoNodo = new NodoCola(pedido);
-    if (final == nullptr) {
-        frente = nuevoNodo;
-        final = nuevoNodo;
+    if (estaVacia()) {
+        frente = fin = nuevoNodo;
     } else {
-        final->siguiente = nuevoNodo;
-        final = nuevoNodo;
+        fin->establecerSiguiente(nuevoNodo);
+        fin = nuevoNodo;
     }
 }
-
-void Cola::desencolar() {
-    if (frente != nullptr) {
-        NodoCola* nodoAEliminar = frente;
-        frente = frente->siguiente;
-        delete nodoAEliminar;
+int Cola::longitud() {
+    int count = 0;
+    NodoCola* temp = frente;
+    while (temp != nullptr) {
+        count++;
+        temp = temp->obtenerSiguiente();
     }
+    return count;
+}
+Pedido* Cola::desencolar() {
+    if (estaVacia()) {
+        throw "La cola está vacía.";
+    }
+
+    NodoCola* nodoDesencolado = frente;
+    Pedido* pedido = nodoDesencolado->obtenerPedido();
+    frente = frente->obtenerSiguiente();
+    delete nodoDesencolado;
+
     if (frente == nullptr) {
-        final = nullptr;
+        fin = nullptr;
     }
+
+    return pedido;
 }
 
-Pedido Cola::frentePedido() const {
-    if (frente != nullptr) {
-        return frente->pedido;
-    }
-    return Pedido();
-}
-
-bool Cola::estaVacia() const {
+bool Cola::estaVacia() {
     return frente == nullptr;
 }
 
